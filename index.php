@@ -25,6 +25,9 @@ require_once("dbConfig/connect.php");
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <!-- Gallery CSS -->
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 
 <body>
@@ -244,13 +247,13 @@ require_once("dbConfig/connect.php");
                     while ($row = mysqli_fetch_assoc($result)) {
                         // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
                         echo '
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix '.$row["p_category"].'">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix ' . $row["p_category"] . '">
                         <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="img/products/'.$row["p_image_url"].'">
+                            <div class="featured__item__pic set-bg" data-setbg="img/products/' . $row["p_image_url"] . '">
                             </div>
                             <div class="featured__item__text">
-                                <h6><a href="#">'.$row["p_name"].'</a></h6>
-                                <h5>Rs.'.$row["p_price"].'.00</h5>
+                                <h6><a href="#">' . $row["p_name"] . '</a></h6>
+                                <h5>Rs.' . $row["p_price"] . '.00</h5>
                             </div>
                         </div>
                     </div>
@@ -405,6 +408,49 @@ require_once("dbConfig/connect.php");
     </div> -->
     <!-- Banner End -->
 
+    <!-- Galley Start -->    
+    <div class="galley-wrapper">
+        <div class="container">
+            <div class="row gallery">
+                <p class="gallery-header">Our Exhibition Gallery</p>
+                <div class="gallery-holder">
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g2.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g1.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g4.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g3.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g6.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g7.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g8.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g9.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g10.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g11.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Galley End -->
+
     <!-- Latest Product Section Begin -->
     <section class="latest-product spad">
         <div class="container">
@@ -414,48 +460,48 @@ require_once("dbConfig/connect.php");
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                            <?php
+                                <?php
 
                                 $sql = "SELECT * FROM products";
                                 $result = mysqli_query($conn, $sql);
 
                                 if (mysqli_num_rows($result) > 0) {
-                                // output data of each row
-                                $count = 0;
-                                $count_max = mysqli_num_rows($result);
-                                while($row = mysqli_fetch_assoc($result)) {
-                                    echo '
+                                    // output data of each row
+                                    $count = 0;
+                                    $count_max = mysqli_num_rows($result);
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/products/'.$row["p_image_url"].'" alt="">
+                                                <img src="img/products/' . $row["p_image_url"] . '" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
-                                                <h6>'.$row["p_name"].'</h6>
-                                                <span>'.$row["p_price"].'</span>
+                                                <h6>' . $row["p_name"] . '</h6>
+                                                <span>' . $row["p_price"] . '</span>
                                             </div>
                                         </a>
                                     ';
-                                    $count++;
-                                    if($count > 0 && $count % 3 == 0 && $count < $count_max){
-                                        echo '
+                                        $count++;
+                                        if ($count > 0 && $count % 3 == 0 && $count < $count_max) {
+                                            echo '
                                         </div>
                                         <div class="latest-prdouct__slider__item">
                                         ';
-                                    }
-                                    if($count == $count_max){
-                                        echo '
+                                        }
+                                        if ($count == $count_max) {
+                                            echo '
                                             </div>
                                         ';
+                                        }
                                     }
-                                }
                                 } else {
-                                echo "0 results";
+                                    echo "0 results";
                                 }
 
                                 mysqli_close($conn);
-                            
-                            ?>
-                            <!-- <div class="latest-prdouct__slider__item">
+
+                                ?>
+                                <!-- <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="img/latest-product/lp-1.jpg" alt="">
@@ -484,7 +530,7 @@ require_once("dbConfig/connect.php");
                                     </div>
                                 </a>
                             </div> -->
-                            <!-- <div class="latest-prdouct__slider__item">
+                                <!-- <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="img/latest-product/lp-1.jpg" alt="">
@@ -513,10 +559,10 @@ require_once("dbConfig/connect.php");
                                     </div>
                                 </a>
                             </div> -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6">
+                    <!-- <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Top Rated Products</h4>
                         <div class="latest-product__slider owl-carousel">
@@ -646,11 +692,10 @@ require_once("dbConfig/connect.php");
                         </div>
                     </div>
                 </div> -->
+                </div>
             </div>
-        </div>
     </section>
     <!-- Latest Product Section End -->
-
     <!-- Blog Section Begin -->
     <!-- <section class="from-blog spad">
         <div class="container">
@@ -717,7 +762,7 @@ require_once("dbConfig/connect.php");
         <div class="footer-copyright text-center py-3 text-white">© 2023 Copyright:
             <a href="#"> ArtConnect</a>
         </div>
-    
+
     </footer>
     <!-- Footer End -->
 

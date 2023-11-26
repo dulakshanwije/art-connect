@@ -1,0 +1,42 @@
+.galley-wrapper {
+    background-color: black;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.galley-wrapper .row {
+    margin: auto;
+}
+
+.galley-wrapper .gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-holder {
+    display: flex;
+    width:100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: auto;
+}
+
+.gallery-holder img {
+    height: 220px;
+    width: max-content;
+}
+
+.gallery-header {
+    text-align: center;
+    color: aliceblue;
+    font-size: 40px;
+    margin: 40px 0px;
+}
+
+.gallery-single-img-holder {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 8px;
+}
