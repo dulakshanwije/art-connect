@@ -32,15 +32,15 @@ require_once("dbConfig/connect.php");
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Humberger Begin -->
     <?php include('humberger.html')?>
     <!-- Humberger End -->
     <!-- Header Section Begin -->
-    <?php include('header.html')?>
+    <?php include('header.php')?>
     <!-- <header class="header">
         <div class="container">
             <div class="row">

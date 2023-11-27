@@ -64,7 +64,7 @@ require_once("dbConfig/connect.php");
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <?php include('header.html')?>
+    <?php include('header.php')?>
     <!-- Header Section End -->
     
     <!-- Hero Section Begin -->

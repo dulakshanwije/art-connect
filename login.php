@@ -22,6 +22,14 @@ if (isset($_GET['msg'])) {
             </script>
         ';
     }
+
+    if ($_GET['msg'] == 'cart-login') {
+        echo '
+        <script>
+        alert("You must login to your account first");
+        </script>
+        ';
+    }
 }
 
 function validateInput($data)
@@ -49,8 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($row["u_password"] === $u_password) {
                     if ($row["u_role"] === "user") {
+                        $_SESSION["current_user_id"] = $row["u_id"];
                         $_SESSION["current_user"] = $row["u_email"];
-                        header("location:dashboard.php");
+                        header("location:index.php");
                     }
                 } else {
                     header("location:login.php?msg=invalid-auth");
@@ -123,6 +132,7 @@ mysqli_close($conn);
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p class="mt-3 mb-3 text-muted">Don't have an account? <a href="signup.php">Register now</a></p>
+        <p class="mt-3 mb-3 text-muted"><a href="index.php">Return to Home</a></p>
     </form>
 
 

@@ -178,6 +178,7 @@ mysqli_close($conn);
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         <p class="mt-3 mb-3 text-muted">Already have an account? <a href="login.php">Login</a></p>
+        <p class="mt-3 mb-3 text-muted"><a href="index.php">Return to Home</a></p>
     </form>
 
     <script>

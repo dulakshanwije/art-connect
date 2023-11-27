@@ -1,9 +1,19 @@
 <?php
-    require_once("dbConfig/connect.php");
+require_once("dbConfig/connect.php");
 
-    if(!isset($_GET["product"])){
-        header("location:shop-grid.php");
+if (!isset($_GET["product"])) {
+    header("location:shop-grid.php");
+}
+
+if (isset($_GET['msg'])) {
+    if ($_GET['msg'] == 'cart-success') {
+        echo '
+                <script>
+                    alert("Item added to the cart successfully!");
+                </script>
+            ';
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +46,15 @@
     </div>
 
     <!-- Humberger Begin -->
-    <?php include('humberger.html')?>
+    <?php include('humberger.html') ?>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <?php include('header.html')?>
+    <?php include('header.php') ?>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <?php include('hero-section.html')?>
+    <?php include('hero-section.html') ?>
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -54,28 +64,28 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <?php
-                            $p_id = $_GET["product"];
-                            $sql = "SELECT * FROM products WHERE p_id = '$p_id'";
-                            $result = mysqli_query($conn, $sql);
+                        $p_id = $_GET["product"];
+                        $sql = "SELECT * FROM products WHERE p_id = '$p_id'";
+                        $result = mysqli_query($conn, $sql);
 
-                            $data = array();
+                        $data = array();
 
-                            if (mysqli_num_rows($result) > 0) {
-                              // output data of each row
-                              while($row = mysqli_fetch_assoc($result)) {
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
                                 $data = $row;
                                 echo '
-                                <h2>'.$row["p_category"].'</h2>
+                                <h2>' . $row["p_category"] . '</h2>
                                 <div class="breadcrumb__option">
                                     <a href="./index.html">Home</a>
                                     <a href="./index.html">Shop</a>
-                                    <span>'.$row["p_category"].'</span>
+                                    <span>' . $row["p_category"] . '</span>
                                 </div>
                                 ';
-                              }
-                            } else {
-                              echo "0 results";
                             }
+                        } else {
+                            echo "0 results";
+                        }
                         ?>
                     </div>
                 </div>
@@ -91,8 +101,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src="img/products/<?php echo $data["p_image_url"]?>" alt="">
+                            <img class="product__details__pic__item--large" src="img/products/<?php echo $data["p_image_url"] ?>" alt="">
                         </div>
                         <!-- <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -108,7 +117,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3><?php echo $data["p_name"];?></h3>
+                        <h3><?php echo $data["p_name"]; ?></h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -117,33 +126,28 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">Rs.<?php echo $data["p_price"];?>.00</div>
-                        <p><?php echo $data["p_desc"];?></p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                        <div class="product__details__price">Rs.<?php echo $data["p_price"]; ?>.00</div>
+                        <p><?php echo $data["p_desc"]; ?></p>
+                        <form action="add-to-cart.php" method="post">
+                            <div class="product__details__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input name = "quantity" type="text" value="1" min="1">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <input name = "product_id" type="text" value="<?php echo $data["p_id"]; ?>" hidden>
+                            <button type="submit" class="primary-btn">ADD TO CARD</button>
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        </form>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Shipping</b> <span>01 day shipping</li>
                             <li><b>Weight</b> <span>0.5 kg</span></li>
-                            <li><b>Share on</b>
-                                <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
@@ -222,7 +226,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -239,39 +243,39 @@
                 </div>
             </div>
             <div class="row">
-            <?php
-            $category = $data["p_category"];
-            $sql = "SELECT * FROM products WHERE p_category = '$category'";
-            $result = mysqli_query($conn, $sql);
+                <?php
+                $category = $data["p_category"];
+                $sql = "SELECT * FROM products WHERE p_category = '$category'";
+                $result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                echo '
+                if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/products/'.$row["p_image_url"].'">
+                            <div class="product__item__pic set-bg" data-setbg="img/products/' . $row["p_image_url"] . '">
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="shop-details.php?product='.$row['p_id'].'">'.$row['p_name'].'</a></h6>
-                                <h5>Rs'.$row['p_price'].'.00</h5>
+                                <h6><a href="shop-details.php?product=' . $row['p_id'] . '">' . $row['p_name'] . '</a></h6>
+                                <h5>Rs' . $row['p_price'] . '.00</h5>
                             </div>
                         </div>
                     </div>
                 ';
-            }
-            } else {
-            echo "0 results";
-            }
-            
-            ?>
+                    }
+                } else {
+                    echo "0 results";
+                }
+
+                ?>
             </div>
         </div>
     </section>
     <!-- Related Product Section End -->
 
     <!-- Footer Start -->
-    <?php include('footer.html')?>
+    <?php include('footer.html') ?>
     <!-- Footer End -->
 
     <!-- Js Plugins -->

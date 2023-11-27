@@ -36,15 +36,15 @@ require_once("dbConfig/connect.php");
     </div>
 
     <!-- Humberger Begin -->
-    <?php include('humberger.html')?>
+    <?php include('humberger.html') ?>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <?php include('header.html')?>
+    <?php include('header.php') ?>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <?php include('hero-section.html')?>
+    <?php include('hero-section.html') ?>
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -66,42 +66,81 @@ require_once("dbConfig/connect.php");
     <!-- Breadcrumb Section End -->
 
     <!-- Gallery Start -->
-    <div class="gallery-page-wrapper">
+    <!-- <div class="gallery-page-wrapper">
         <div class="container">
             <div class="row">
-            <p class="gallery-page-header">Our Exhibition Gallery</p>
-            <div class="gallery-page-holder">
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
-            </div>
-            <div class="gallery-page-img-holder">
-                <img src="./img/gallery/g1.jpg" alt="">
+                <p class="gallery-page-header">Our Exhibition Gallery</p>
+                <div class="gallery-page-holder">
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g1.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g2.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g3.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g4.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g10.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g6.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g7.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g8.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g9.jpg" alt="">
+                    </div>
+                    <div class="gallery-page-img-holder">
+                        <img src="./img/gallery/g1.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
+    </div> -->
+    <div class="galley-wrapper">
+        <div class="container">
+            <div class="row gallery">
+                <p class="gallery-header">Our Exhibition Gallery</p>
+                <div class="gallery-holder">
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g2.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g1.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g4.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g3.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g6.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g7.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g8.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g9.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g10.jpg" alt="">
+                    </div>
+                    <div class="gallery-single-img-holder">
+                        <img src="img/gallery/g11.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -119,7 +158,7 @@ require_once("dbConfig/connect.php");
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
-                        <div class="blog__sidebar__item">
+                        <!-- <div class="blog__sidebar__item">
                             <h4>Categories</h4>
                             <ul>
                                 <li><a href="#">All</a></li>
@@ -128,48 +167,46 @@ require_once("dbConfig/connect.php");
                                 <li><a href="#">Life Style (9)</a></li>
                                 <li><a href="#">Travel (10)</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div class="blog__sidebar__item">
-                            <h4>Recent News</h4>
+                            <h4>Recent Posts</h4>
                             <div class="blog__sidebar__recent">
-                                <a href="#" class="blog__sidebar__recent__item">
-                                    <div class="blog__sidebar__recent__item__pic">
-                                        <img src="img/blog/sidebar/sr-1.jpg" alt="">
-                                    </div>
-                                    <div class="blog__sidebar__recent__item__text">
-                                        <h6>09 Kinds Of Vegetables<br /> Protect The Liver</h6>
-                                        <span>MAR 05, 2019</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="blog__sidebar__recent__item">
-                                    <div class="blog__sidebar__recent__item__pic">
-                                        <img src="img/blog/sidebar/sr-2.jpg" alt="">
-                                    </div>
-                                    <div class="blog__sidebar__recent__item__text">
-                                        <h6>Tips You To Balance<br /> Nutrition Meal Day</h6>
-                                        <span>MAR 05, 2019</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="blog__sidebar__recent__item">
-                                    <div class="blog__sidebar__recent__item__pic">
-                                        <img src="img/blog/sidebar/sr-3.jpg" alt="">
-                                    </div>
-                                    <div class="blog__sidebar__recent__item__text">
-                                        <h6>4 Principles Help You Lose <br />Weight With Vegetables</h6>
-                                        <span>MAR 05, 2019</span>
-                                    </div>
-                                </a>
+                                <?php
+
+                                $get_all_recent_posts_sql = "SELECT post_id, post_title, post_description, post_date,post_photo FROM posts ORDER BY post_id DESC LIMIT 5";
+                                $result_recent = mysqli_query($conn, $get_all_recent_posts_sql);
+
+                                if (mysqli_num_rows($result_recent) > 0) {
+                                    // output data of each row
+                                    while ($row_posts = mysqli_fetch_assoc($result_recent)) {
+                                        echo '
+                                            <a href="blog-details.php?post='.$row_posts["post_id"].'" class="blog__sidebar__recent__item">
+                                                <div class="blog__sidebar__recent__item__pic">
+                                                    <img src="img/blog/'.$row_posts["post_photo"].'" alt="">
+                                                </div>
+                                                <div class="blog__sidebar__recent__item__text">
+                                                    <h6>'.$row_posts["post_title"].'</h6>
+                                                    <span>'.$row_posts["post_date"].'</span>
+                                                </div>
+                                            </a>
+                                        ';
+                                    }
+                                }
+
+                                ?>
                             </div>
                         </div>
                         <div class="blog__sidebar__item">
                             <h4>Search By</h4>
                             <div class="blog__sidebar__item__tags">
-                                <a href="#">Apple</a>
-                                <a href="#">Beauty</a>
-                                <a href="#">Vegetables</a>
-                                <a href="#">Fruit</a>
-                                <a href="#">Healthy Food</a>
-                                <a href="#">Lifestyle</a>
+                                <a href="#">Absract</a>
+                                <a href="#">Portraiture</a>
+                                <a href="#">Still Life</a>
+                                <a href="#">Pop Art</a>
+                                <a href="#">Conceptual Art</a>
+                                <a href="#">Digital Art</a>
+                                <a href="#">Landscape</a>
+                                <a href="#">Installation</a>
                             </div>
                         </div>
                     </div>
@@ -189,15 +226,15 @@ require_once("dbConfig/connect.php");
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="blog__item">
                                             <div class="blog__item__pic">
-                                                <img src="img/blog/'.$row["post_photo"].'" alt="">
+                                                <img src="img/blog/' . $row["post_photo"] . '" alt="">
                                             </div>
                                             <div class="blog__item__text">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar-o"></i> '.$row["post_date"].'</li>
+                                                    <li><i class="fa fa-calendar-o"></i> ' . $row["post_date"] . '</li>
                                                 </ul>
-                                                <h5><a href="blog-details.php?post='.$row["post_id"].'">'.$row["post_title"].'</a></h5>
-                                                <p style = "overflow:hidden; height:50px">'.$row["post_description"].'</p>
-                                                <a href="blog-details.php?post='.$row["post_id"].'" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                                <h5><a href="blog-details.php?post=' . $row["post_id"] . '">' . $row["post_title"] . '</a></h5>
+                                                <p style = "overflow:hidden; height:50px">' . $row["post_description"] . '</p>
+                                                <a href="blog-details.php?post=' . $row["post_id"] . '" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -223,7 +260,7 @@ require_once("dbConfig/connect.php");
     <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->
-    <?php include('footer.html')?>
+    <?php include('footer.html') ?>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
