@@ -1,0 +1,36 @@
+.gallery-page-wrapper {
+    width: 100%;
+    background-color: black;
+    height: auto;
+    margin-top: 100px;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; */
+}
+
+.gallery-page-wrapper .gallery-page-holder{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    padding-bottom: 40px;
+}
+
+.gallery-page-holder .gallery-page-img-holder {
+    padding: 10px 0px;
+    width: 20%;
+}
+.gallery-page-img-holder img{
+    width: 220px;
+}
+
+.gallery-page-header {
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    font-size: 40px;
+    margin: 40px 0px;
+}

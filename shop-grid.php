@@ -64,84 +64,11 @@ require_once("dbConfig/connect.php");
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="./shop-grid.php">Shop</a></li>
-                            <li><a href="#">Galley</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Login</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>Rs. 00.00</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <?php include('header.html')?>
     <!-- Header Section End -->
-
+    
     <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Colours</a></li>
-                            <li><a href="#">Brushes</a></li>
-                            <li><a href="#">Surfaces</a></li>
-                            <li><a href="#">Mediums & Additives</a></li>
-                            <li><a href="#">Accessory</a></li>
-                            <li><a href="#">Art Works</a></li>
-                            <li><a href="#">Publications</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+94 37 222 3186</h5>
-                                <span>Support 24/7 Time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php include('hero-section.html')?>
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -385,12 +312,7 @@ require_once("dbConfig/connect.php");
     <!-- Product Section End -->
 
     <!-- Footer Start -->
-    <footer class="page-footer font-small bg-dark">
-        <div class="footer-copyright text-center py-3 text-white">© 2023 Copyright:
-            <a href="#"> ArtConnect</a>
-        </div>
-    
-    </footer>
+    <?php include('footer.html')?>
     <!-- Footer End -->
 
     <!-- Js Plugins -->

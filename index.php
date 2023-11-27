@@ -37,39 +37,11 @@ require_once("dbConfig/connect.php");
     </div>
 
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>Rs. 00.00</span></div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
-                <li><a href="shop-grid.php">Shop</a></li>
-                <li><a href="#">Gallery</a>
-                </li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> info@artconnect.com</li>
-                <li>Explore, Create</li>
-            </ul>
-        </div>
-    </div>
+    <?php include('humberger.html')?>
     <!-- Humberger End -->
-
     <!-- Header Section Begin -->
-    <header class="header">
+    <?php include('header.html')?>
+    <!-- <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -101,7 +73,7 @@ require_once("dbConfig/connect.php");
                 <i class="fa fa-bars"></i>
             </div>
         </div>
-    </header>
+    </header> -->
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -758,12 +730,7 @@ require_once("dbConfig/connect.php");
     <!-- Blog Section End -->
 
     <!-- Footer Start -->
-    <footer class="page-footer font-small bg-dark">
-        <div class="footer-copyright text-center py-3 text-white">© 2023 Copyright:
-            <a href="#"> ArtConnect</a>
-        </div>
-
-    </footer>
+    <?php include('footer.html')?>
     <!-- Footer End -->
 
     <!-- Js Plugins -->

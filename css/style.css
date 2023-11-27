@@ -2300,6 +2300,15 @@ ol {
 	margin-bottom: 60px;
 }
 
+.blog__item__pic {
+	height:250px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
 .blog__item__pic img {
 	min-width: 100%;
 }
@@ -2458,6 +2467,11 @@ ol {
 .blog__sidebar__recent__item__pic {
 	float: left;
 	margin-right: 20px;
+}
+/* Modifying */
+.blog__sidebar__recent__item__pic img{
+	width: 70px;
+	height: 70px;
 }
 
 .blog__sidebar__recent__item__text {
