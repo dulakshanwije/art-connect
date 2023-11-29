@@ -18,7 +18,6 @@ if(isset($_SESSION["current_user_id"])){
             $total_item_count += (int)$row["cart_quantity"];
         }
     } else {
-        echo "0 results";
     }
 }
 ?>
@@ -51,10 +50,36 @@ if(isset($_SESSION["current_user_id"])){
                 <div class="header__cart">
                     <ul>
                         <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i> <span>
-                            <?php echo(isset($_SESSION["current_user_id"])?$total_item_count: "0") ?>
+                            <?php
+                            if(isset($_SESSION["current_user_id"])){
+                                if(isset($total_item_count)){
+                                    echo $total_item_count;
+                                }
+                                else{
+                                    echo "0";
+                                }
+                            }
+                            else{
+                                echo "0";
+                            }
+                            ?>
                         </span></a></li>
                     </ul>
-                    <div class="header__cart__price">Total: <span>Rs. <?php echo(isset($_SESSION["current_user_id"])?$total_value: "00") ?>.00</span></div>
+                    <div class="header__cart__price">Total: <span>Rs. 
+                    <?php
+                            if(isset($_SESSION["current_user_id"])){
+                                if(isset($total_value)){
+                                    echo $total_value;
+                                }
+                                else{
+                                    echo "00";
+                                }
+                            }
+                            else{
+                                echo "00";
+                            }
+                            ?>
+                        .00</span></div>
                 </div>
             </div>
         </div>

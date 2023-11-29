@@ -94,10 +94,6 @@ require_once("dbConfig/connect.php");
                             <li><a href="#">Accessory</a></li>
                             <li><a href="#">Art Works</a></li>
                             <li><a href="#">Publications</a></li>
-                            <li><a href="#">Lorem, ipsum</a></li>
-                            <li><a href="#">Lorem, ipsum</a></li>
-                            <li><a href="#">Lorem, ipsum</a></li>
-                            <li><a href="#">Lorem, ipsum</a></li>
                         </ul>
                     </div>
                 </div>
@@ -423,54 +419,97 @@ require_once("dbConfig/connect.php");
 
     <!-- Galley End -->
 
+    <!-- Related Blog Section Begin -->
+    <section class="related-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related-blog-title">
+                        <h2>Post You May Like</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php
+
+                $get_all_recent_posts_sql = "SELECT post_id, post_title, post_description, post_date,post_photo FROM posts ORDER BY post_id DESC LIMIT 3";
+                $result_recent = mysqli_query($conn, $get_all_recent_posts_sql);
+
+                if (mysqli_num_rows($result_recent) > 0) {
+                    // output data of each row
+                    while ($row_posts = mysqli_fetch_assoc($result_recent)) {
+                        echo '
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="img/blog/' . $row_posts["post_photo"] . '" alt="">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        <ul>
+                                            <li><i class="fa fa-calendar-o"></i>' . $row_posts["post_date"] . '</li>
+                                        </ul>
+                                        <h5><a href="blog-details.php?post=' . $row_posts["post_id"] . '">' . $row_posts["post_title"] . '</a></h5>
+                                        <p style = "overflow:hidden; height:75px;">' . $row_posts["post_description"] . '</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+    <!-- Related Blog Section End -->
+
     <!-- Latest Product Section Begin -->
-    <section class="latest-product spad">
+    <!-- <section class="latest-product spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
+                            <div class="latest-prdouct__slider__item"> -->
                                 <?php
 
-                                $sql = "SELECT * FROM products";
-                                $result = mysqli_query($conn, $sql);
+                                // $sql = "SELECT * FROM products";
+                                // $result = mysqli_query($conn, $sql);
 
-                                if (mysqli_num_rows($result) > 0) {
-                                    // output data of each row
-                                    $count = 0;
-                                    $count_max = mysqli_num_rows($result);
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo '
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="img/products/' . $row["p_image_url"] . '" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>' . $row["p_name"] . '</h6>
-                                                <span>' . $row["p_price"] . '</span>
-                                            </div>
-                                        </a>
-                                    ';
-                                        $count++;
-                                        if ($count > 0 && $count % 3 == 0 && $count < $count_max) {
-                                            echo '
-                                        </div>
-                                        <div class="latest-prdouct__slider__item">
-                                        ';
-                                        }
-                                        if ($count == $count_max) {
-                                            echo '
-                                            </div>
-                                        ';
-                                        }
-                                    }
-                                } else {
-                                    echo "0 results";
-                                }
+                                // if (mysqli_num_rows($result) > 0) {
+                                //     // output data of each row
+                                //     $count = 0;
+                                //     $count_max = mysqli_num_rows($result);
+                                //     while ($row = mysqli_fetch_assoc($result)) {
+                                //         echo '
+                                //         <a href="#" class="latest-product__item">
+                                //             <div class="latest-product__item__pic">
+                                //                 <img src="img/products/' . $row["p_image_url"] . '" alt="">
+                                //             </div>
+                                //             <div class="latest-product__item__text">
+                                //                 <h6>' . $row["p_name"] . '</h6>
+                                //                 <span>' . $row["p_price"] . '</span>
+                                //             </div>
+                                //         </a>
+                                //     ';
+                                //         $count++;
+                                //         if ($count > 0 && $count % 3 == 0 && $count < $count_max) {
+                                //             echo '
+                                //         </div>
+                                //         <div class="latest-prdouct__slider__item">
+                                //         ';
+                                //         }
+                                //         if ($count == $count_max) {
+                                //             echo '
+                                //             </div>
+                                //         ';
+                                //         }
+                                //     }
+                                // } else {
+                                //     echo "0 results";
+                                // }
 
-                                mysqli_close($conn);
+                                // mysqli_close($conn);
 
                                 ?>
                                 <!-- <div class="latest-prdouct__slider__item">
@@ -531,9 +570,9 @@ require_once("dbConfig/connect.php");
                                     </div>
                                 </a>
                             </div> -->
-                            </div>
+                            <!-- </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Top Rated Products</h4>
@@ -664,9 +703,9 @@ require_once("dbConfig/connect.php");
                         </div>
                     </div>
                 </div> -->
-                </div>
+                <!-- </div>
             </div>
-    </section>
+    </section> -->
     <!-- Latest Product Section End -->
     <!-- Blog Section Begin -->
     <!-- <section class="from-blog spad">

@@ -64,7 +64,7 @@ VALUES ('$p_name', '$p_category', '$p_desc', '$p_availability', '$p_price', '$ne
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Dashboard Template · Bootstrap v4.6</title>
+    <title>Dashboard | ArtConnect</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/"> -->
 
@@ -261,7 +261,14 @@ VALUES ('$p_name', '$p_category', '$p_desc', '$p_availability', '$p_price', '$ne
 
                             <div class="form-group">
                                 <label for="">Product Category</label>
-                                <input type="text" class="form-control" id="" aria-describedby="" name="p_category" required>
+                                <select name="p_category" class="form-control" id="" required>
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Colours" >Colours</option>
+                                    <option value="Brushes" >Brushes</option>
+                                    <option value="Surfaces" >Surfaces</option>
+                                    <option value="Mediums" >Mediums</option>
+                                    <option value="Accessories" >Accessories</option>
+                                </select>
                             </div>
 
                             <div class="form-group">

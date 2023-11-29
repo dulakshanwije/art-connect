@@ -74,65 +74,43 @@
     
   <?php include ("dashboard-side-menu.html")?>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 d-flex justify-content-center align-items-center">
-      <!-- <div class="post-wrapper">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="post-wrapper">
         <div class="post-holder">
 
           <div class="post-header">
           <h3>Your Posts</h3>
-          <button>ADD NEW POST</button>
+          <a href="add_new_post.php"><button>ADD NEW POST</button></a>
           </div>
 
-          <div class="single-post-holder">
-            <div class="post-holder-left">
-              <div class="post-img">
-                <img src="img/blog/blog-1.jpg" alt="">
-              </div>
-              <div class="post-content">
-                <p class="post-title">Lorem ipsum dolor sit amet consectetur.</p>
-                <p class="post-date">2023-07-23</p>
-              </div>
-            </div>
-            <div class="post-btn">
-              <button>EDIT</button>
-            </div>
-          </div>
+          <?php
+                $user_id = $_SESSION["current_user_id"];
+                $get_all_recent_posts_sql = "SELECT post_id, post_title, post_date,post_photo FROM posts WHERE u_id = '$user_id' ORDER BY post_id DESC";
+                $result_recent = mysqli_query($conn, $get_all_recent_posts_sql);
 
-          <div class="single-post-holder">
-            <div class="post-holder-left">
-              <div class="post-img">
-                <img src="img/blog/blog-2.jpg" alt="">
-              </div>
-              <div class="post-content">
-                <p class="post-title">Lorem ipsum dolor sit amet consectetur.</p>
-                <p class="post-date">2023-07-23</p>
-              </div>
-            </div>
-            <div class="post-btn">
-              <button>EDIT</button>
-            </div>
-          </div>
-
-          <div class="single-post-holder">
-            <div class="post-holder-left">
-              <div class="post-img">
-                <img src="img/blog/blog-1.jpg" alt="">
-              </div>
-              <div class="post-content">
-                <p class="post-title">Lorem ipsum dolor sit amet consectetur.</p>
-                <p class="post-date">2023-07-23</p>
-              </div>
-            </div>
-            <div class="post-btn">
-              <button>EDIT</button>
-            </div>
-          </div>
+                if (mysqli_num_rows($result_recent) > 0) {
+                    // output data of each row
+                    while ($row_posts = mysqli_fetch_assoc($result_recent)) {
+                        echo '
+                            <div class="single-post-holder">
+                            <div class="post-holder-left">
+                              <div class="post-img">
+                                <img src="img/blog/'.$row_posts["post_photo"].'" alt="">
+                              </div>
+                              <div class="post-content">
+                                <p class="post-title">'.$row_posts["post_title"].'</p>
+                                <p class="post-date">'.$row_posts["post_date"].'</p>
+                              </div>
+                            </div>
+                            <div class="post-btn">
+                              <a href="edit_post.php?post='.$row_posts["post_id"].'"><button>EDIT</button></a>
+                            </div>
+                          </div>
+                        ';
+                    }
+                }
+                ?>
         </div>
-      </div> -->
-      <div style="text-align: center;">
-        <img src="img/logo.png" alt="">
-        <br/>
-        <h3>User's Dashboard</h3>
       </div>
     </main>
   </div>
@@ -157,7 +135,7 @@
         <!-- <script src="../js/main.js"></script> -->
 
         <script>
-          document.getElementById("dashboard-menu-item").classList.add("active");
+          document.getElementById("posts-menu-item").classList.add("active");
         </script>
   </body>
 </html>

@@ -26,15 +26,15 @@
         $p_name = validateInput($_POST['p_name']);
         $p_category = validateInput($_POST['p_category']);
         $p_desc = validateInput($_POST['p_desc']);
-        $p_availability = validateInput($_POST['p_availability']);
-        $p_isDiscount = validateInput($_POST['p_isDiscount']);
-        $p_isFeatured = validateInput($_POST['p_isFeatured']);
-        $p_discount = validateInput($_POST['p_discount']);
+        $p_availability = validateInput(isset($_POST['p_availability'])?$_POST['p_availability']:0);
+        $p_isDiscount = validateInput(isset($_POST['p_isDiscount'])?$_POST['p_isDiscount']:0);
+        $p_isFeatured = validateInput(isset($_POST['p_isFeatured'])?$_POST['p_isFeatured']:0);
+        $p_discount = validateInput(isset($_POST['p_discount'])?$_POST['p_discount']:0);
         $p_price = validateInput($_POST['p_price']);
         $p_image = $_FILES['p_image']['tmp_name'];
         $p_image_name = $_FILES['p_image']['name'];
     
-        if (empty($p_name) || empty($p_category) || empty($p_desc) || empty($p_availability) || empty($p_price)) {
+        if (empty($p_name) || empty($p_category) || empty($p_desc) || empty($p_price)) {
             echo "Empty!!";
         } else {
     

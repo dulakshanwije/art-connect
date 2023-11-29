@@ -19,7 +19,7 @@ if (isset($_GET["post"])) {
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>ArtConnect | Art Shop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ if (isset($_GET["post"])) {
     </div>
 
     <!-- Humberger Begin -->
-    <?php include('humberger.html')?>
+    <?php include('humberger.html') ?>
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
@@ -118,13 +118,13 @@ if (isset($_GET["post"])) {
                                     // output data of each row
                                     while ($row_products = mysqli_fetch_assoc($result_products)) {
                                         echo '
-                                                <a href="./shop-details.php?product='.$row_products["p_id"].'" class="blog__sidebar__recent__item">
+                                                <a href="./shop-details.php?product=' . $row_products["p_id"] . '" class="blog__sidebar__recent__item">
                                                     <div class="blog__sidebar__recent__item__pic">
-                                                        <img src="img/products/'.$row_products["p_image_url"].'" alt="">
+                                                        <img src="img/products/' . $row_products["p_image_url"] . '" alt="">
                                                     </div>
                                                     <div class="blog__sidebar__recent__item__text">
-                                                        <h6>'.$row_products["p_name"].'</h6>
-                                                        <span>'.$row_products["p_category"].'</span>
+                                                        <h6>' . $row_products["p_name"] . '</h6>
+                                                        <span>' . $row_products["p_category"] . '</span>
                                                     </div>
                                                 </a>
                                             ';
@@ -172,8 +172,8 @@ if (isset($_GET["post"])) {
                             <div class="col-lg-6">
                                 <div class="blog__details__widget">
                                     <ul>
-                                        <li><span>Categories:</span> <?php echo $row['post_category'] ?></li>
-                                        <li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>
+                                        <li><span>Category:</span> <?php echo $row['post_category'] ?></li>
+                                        <li>Share this: </li>
                                     </ul>
                                     <div class="blog__details__social">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -203,51 +203,33 @@ if (isset($_GET["post"])) {
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-1.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-2.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-3.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+
+                $get_all_recent_posts_sql = "SELECT post_id, post_title, post_description, post_date,post_photo FROM posts ORDER BY post_id DESC LIMIT 3";
+                $result_recent = mysqli_query($conn, $get_all_recent_posts_sql);
+
+                if (mysqli_num_rows($result_recent) > 0) {
+                    // output data of each row
+                    while ($row_posts = mysqli_fetch_assoc($result_recent)) {
+                        echo '
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="img/blog/' . $row_posts["post_photo"] . '" alt="">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        <ul>
+                                            <li><i class="fa fa-calendar-o"></i>' . $row_posts["post_date"] . '</li>
+                                        </ul>
+                                        <h5><a href="blog-details.php?post=' . $row_posts["post_id"] . '">' . $row_posts["post_title"] . '</a></h5>
+                                        <p style = "overflow:hidden; height:75px;">' . $row_posts["post_description"] . '</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>

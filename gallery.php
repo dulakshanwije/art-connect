@@ -199,14 +199,14 @@ require_once("dbConfig/connect.php");
                         <div class="blog__sidebar__item">
                             <h4>Search By</h4>
                             <div class="blog__sidebar__item__tags">
-                                <a href="#">Absract</a>
+                                <a href="#">Abstract</a>
                                 <a href="#">Portraiture</a>
                                 <a href="#">Still Life</a>
                                 <a href="#">Pop Art</a>
                                 <a href="#">Conceptual Art</a>
                                 <a href="#">Digital Art</a>
                                 <a href="#">Landscape</a>
-                                <a href="#">Installation</a>
+                                <a href="#">Illustration</a>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@ require_once("dbConfig/connect.php");
                                                     <li><i class="fa fa-calendar-o"></i> ' . $row["post_date"] . '</li>
                                                 </ul>
                                                 <h5><a href="blog-details.php?post=' . $row["post_id"] . '">' . $row["post_title"] . '</a></h5>
-                                                <p style = "overflow:hidden; height:50px">' . $row["post_description"] . '</p>
+                                                <p style = "overflow:hidden; height:50px;">' . $row["post_description"] . '</p>
                                                 <a href="blog-details.php?post=' . $row["post_id"] . '" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                             </div>
                                         </div>
